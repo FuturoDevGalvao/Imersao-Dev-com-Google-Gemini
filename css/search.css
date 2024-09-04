@@ -9,8 +9,7 @@
   backdrop-filter: blur(13px);
   -webkit-backdrop-filter: blur(13px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background-color: yellow;
-}
+ }
 
 #search input {
   width: 100%;
@@ -25,7 +24,17 @@
 }
 
 #search input::placeholder {
+  color: var(--font-sec);
+  transition: .3s;
+}
+
+#search input:focus::placeholder {
   color: var(--font-pry);
+  transition: .3s;
+}
+
+#search input:focus {
+  border: 1px solid var(--theme);
 }
 
 #search i {
@@ -41,7 +50,7 @@
   align-items: center;
   justify-content: center;
   left: 7px;
-  top: 7px;
+  top: 6px;
   font-size: 1.8rem;
   border-radius: 50%;
 }
@@ -62,7 +71,7 @@
   align-items: center;
   justify-content: center;
   right: 7px;
-  top: 7px;
+  top: 6px;
   font-size: 1.6rem;
   border-radius: 50%;
 }
