@@ -1,0 +1,77 @@
+@import "variables.css";
+
+#search {
+  width: 100%;
+  position: relative;
+  border-radius: 40px;
+  background: rgba(15, 23, 42, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: yellow;
+}
+
+#search input {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  border-radius: 40px;
+  padding: 15px 55px;
+  background-color: transparent;
+  color: var(--font-pry);
+  border: 0.5px solid #2a282887;
+}
+
+#search input::placeholder {
+  color: var(--font-pry);
+}
+
+#search i {
+  color: var(--font-sec);
+  position: absolute;
+  cursor: pointer;
+}
+
+#search-icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 7px;
+  top: 7px;
+  font-size: 1.8rem;
+  border-radius: 50%;
+}
+
+#search-icon:hover {
+  color: var(--theme);
+  background: rgba(51, 65, 85, 0.43);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.8px);
+  -webkit-backdrop-filter: blur(8.8px);
+  border: 1px solid rgba(51, 65, 85, 0.3);
+}
+
+#clear-icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 7px;
+  top: 7px;
+  font-size: 1.6rem;
+  border-radius: 50%;
+}
+
+#clear-icon:hover {
+  color: rgb(249, 20, 20);
+  background: rgba(51, 65, 85, 0.43);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.8px);
+  -webkit-backdrop-filter: blur(8.8px);
+  border: 1px solid rgba(51, 65, 85, 0.3);
+}

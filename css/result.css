@@ -1,0 +1,40 @@
+@import "variables.css";
+
+#result {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.fade-bottom {
+  width: 100%;
+  height: 100px;
+  background-color: rebeccapurple;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+}
+
+.fade-top {
+  width: 100%;
+  height: 100px;
+  top: 0;
+  left: 0;
+  position: sticky;
+  background-color: red;
+}
