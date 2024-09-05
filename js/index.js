@@ -8,6 +8,7 @@ const getSectionResultElements = () => {
 
 const getSectionSearchElements = () => {
   return {
+    searchInput: document.getElementById("search-input"),
     searchIcon: document.getElementById("search-icon"),
     clearIcon: document.getElementById("clear-icon"),
   };
@@ -52,6 +53,37 @@ const initCards = () => {
   });
 };
 
+const getActions = () => {
+  const actions = {
+    validateInput: (input) => input.value !== "",
+    claerSearchInput: (input) => input.value = "",
+    search: (input) => {
+      console.log(input);
+      
+      const validated = actions.validateInput(input);
+
+      if (validated) {
+        actions.claerSearchInput(input);
+        const termOfSearch = input.value.trim();
+        alert(termOfSearch);
+      } else {
+        alert("ERRADO");
+      }
+    }
+  }
+
+  return actions;
+}
+
+const addListenerOnElements = () => {
+  const {searchInput, searchIcon, clearIcon} = getSectionSearchElements();
+
+  console.log(searchInput);
+  
+  clearIcon.addEventListener("click", () => getActions()["claerSearchInput"](searchInput))
+  searchIcon.addEventListener("click", () => getActions()["search"](searchInput))
+}
+
 window.onload = () => {
   initCards();
 
@@ -60,4 +92,6 @@ window.onload = () => {
   codeBlocks.forEach((codeBlock) => {
     hljs.highlightElement(codeBlock);
   });
+
+  addListenerOnElements()
 };
