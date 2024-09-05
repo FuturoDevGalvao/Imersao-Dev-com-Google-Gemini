@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/dracula.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/search.css" />
     <link rel="stylesheet" href="./css/result.css" />
@@ -21,7 +22,12 @@
     <main>
       <section id="search">
         <i class="fa-brands fa-searchengin" id="search-icon"></i>
-        <input type="text" name="" id="" placeholder="Pesquise aqui" />
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="Digite o nome da linguagem, e voilà..."
+        />
         <i class="fa-solid fa-circle-xmark" id="clear-icon"></i>
       </section>
 
@@ -29,75 +35,8 @@
         <div class="fade-top"></div>
         <div class="fade-bottom"></div>
 
-        <section id="result">
-      
-
-          <div class="card">
-            <h3>title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sit
-              sint distinctio deleniti, aspernatur in consequuntur molestias,
-              voluptatem assumenda quibusdam reprehenderit aut esse repellendus,
-              enim explicabo asperiores! Ea, provident nulla.
-            </p>
-          </div>
-          <div class="card">
-            <h3>title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sit
-              sint distinctio deleniti, aspernatur in consequuntur molestias,
-              voluptatem assumenda quibusdam reprehenderit aut esse repellendus,
-              enim explicabo asperiores! Ea, provident nulla.
-            </p>
-          </div>
-          <div class="card">
-            <h3>title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sit
-              sint distinctio deleniti, aspernatur in consequuntur molestias,
-              voluptatem assumenda quibusdam reprehenderit aut esse repellendus,
-              enim explicabo asperiores! Ea, provident nulla.
-            </p>
-          </div>
-          <div class="card">
-            <h3>title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sit
-              sint distinctio deleniti, aspernatur in consequuntur molestias,
-              voluptatem assumenda quibusdam reprehenderit aut esse repellendus,
-              enim explicabo asperiores! Ea, provident nulla.
-            </p>
-          </div>
-          <div class="card">
-            <h3>title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sit
-              sint distinctio deleniti, aspernatur in consequuntur molestias,
-              voluptatem assumenda quibusdam reprehenderit aut esse repellendus,
-              enim explicabo asperiores! Ea, provident nulla.
-            </p>
-          </div>
-          <div class="card">
-            <h3>title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sit
-              sint distinctio deleniti, aspernatur in consequuntur molestias,
-              voluptatem assumenda quibusdam reprehenderit aut esse repellendus,
-              enim explicabo asperiores! Ea, provident nulla.
-            </p>
-          </div>
-          <div class="card">
-            <h3>title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem sit
-              sint distinctio deleniti, aspernatur in consequuntur molestias,
-              voluptatem assumenda quibusdam reprehenderit aut esse repellendus,
-              enim explicabo asperiores! Ea, provident nulla.
-            </p>
-          </div>
-        </section>
+        <section id="result"></section>
       </div>
-      
     </main>
     <footer>
       <p>2024 - Linguagens de Programação. Todos os direitos reservados</p>
@@ -107,5 +46,11 @@
       src="https://kit.fontawesome.com/638bd1bffb.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>
