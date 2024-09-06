@@ -15,27 +15,33 @@
   outline: none;
   border-radius: 40px;
   padding: 15px 55px;
+  color: var(--cli-green-hover);
   background-color: transparent;
-  color: var(--font-pry);
-  border: 0.5px solid #2a282887;
+  /*   border: 0.5px solid #2a282887;
+ */
+  font-family: "Ubuntu Mono", monospace;
+  border: 1px solid green;
 }
 
 #search input::placeholder {
-  color: var(--font-sec);
+  color: green;
   transition: 0.3s;
 }
 
 #search input:focus::placeholder {
-  color: var(--font-pry);
+  color: var(--cli-green-hover);
   transition: 0.3s;
 }
 
+#search input:focus ~ i {
+  color: var(--cli-green-hover) !important;
+}
+
 #search input:focus {
-  border: 1px solid var(--theme);
+  border-color: var(--cli-green-hover);
 }
 
 #search i {
-  color: var(--font-sec);
   position: absolute;
   cursor: pointer;
 }
@@ -49,16 +55,9 @@
   left: 7px;
   top: 6px;
   font-size: 1.8rem;
+  cursor: auto !important;
   border-radius: 50%;
-}
-
-#search-icon:hover {
-  color: var(--theme);
-  background: rgba(51, 65, 85, 0.43);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.8px);
-  -webkit-backdrop-filter: blur(8.8px);
-  border: 1px solid rgba(51, 65, 85, 0.3);
+  color: var(--cli-green);
 }
 
 #clear-icon {
@@ -68,16 +67,52 @@
   align-items: center;
   justify-content: center;
   right: 7px;
-  top: 6px;
+  top: 4px;
   font-size: 1.6rem;
   border-radius: 50%;
 }
 
 #clear-icon:hover {
-  color: rgb(249, 20, 20);
+  color: var(--cli-green-hover);
   background: rgba(51, 65, 85, 0.43);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8.8px);
   -webkit-backdrop-filter: blur(8.8px);
   border: 1px solid rgba(51, 65, 85, 0.3);
+}
+
+.shortcut {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 100%;
+  font-weight: 700;
+  right: 65px;
+  pointer-events: none;
+  /*   border: 1px solid hwb(0 0% 0%);
+ */
+  top: -2px;
+}
+
+.shortcut div {
+  display: inline-flex; /* Change to inline-block */
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  height: 28px;
+  padding: 10px;
+  width: 33px !important;
+  border-radius: 5px;
+  background-color: var(--card);
+  color: var(--cli-green);
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 0 var(--border); /* Sombra principal */
+}
+
+@media screen and (max-width: 615px) {
+  .shortcut {
+    display: none;
+  }
 }

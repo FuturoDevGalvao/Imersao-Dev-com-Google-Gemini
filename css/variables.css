@@ -2,7 +2,11 @@
   --font-pry: aliceblue;
   --font-sec: #a6a5a5;
   --hover-icon: rgba(204, 204, 204, 0.5);
-  --bg: #0f172a;
-  --card: #1e293b;
+  --bg: #000;
+  --card: var(--bg);
   --theme: #38bdf8;
+  --border: var(--cli-green);
+  --cli-green: green;
+  --cli-green-hover: #24e755;
+  --cli-yellow: yellow;
 }

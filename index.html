@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/dracula.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/search.css" />
     <link rel="stylesheet" href="./css/result.css" />
@@ -16,18 +15,27 @@
   </head>
   <body>
     <header>
-      <h1><span id="logo">Codepedia</span>: Pesquise, aprenda, code.</h1>
+      <h1>
+        <span style="color: var(--cli-green)">FuturoDevGalvao@penguin:~$</span>
+        <span style="color: var(--cli-yellow)">cd</span>
+        <span style="font-weight: 600" id="logo">Codepedia</span>
+      </h1>
     </header>
 
     <main>
       <section id="search">
-        <i class="fa-brands fa-searchengin" id="search-icon"></i>
         <input
           type="text"
           name=""
-          id=""
+          id="search-input"
           placeholder="Digite o nome da linguagem, e voilà..."
         />
+        <div class="shortcut">
+          <div>ctrl</div>
+          +
+          <div>x</div>
+        </div>
+        <i class="fa-brands fa-searchengin" id="search-icon"></i>
         <i class="fa-solid fa-circle-xmark" id="clear-icon"></i>
       </section>
 
@@ -39,17 +47,32 @@
       </div>
     </main>
     <footer>
-      <p>2024 - Linguagens de Programação. Todos os direitos reservados</p>
+      <span>© 2024 Codepedia, todos os direitos reservados</span>
+      <nav class="social-medias">
+        <ul>
+          <li>
+            <a href="https://www.threads.net/@biel.galvao" target="_blank"
+              ><i class="fa-brands fa-threads"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://github.com/FuturoDevGalvao" target="_blank"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/biel.galvao/" target="_blank"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
     </footer>
 
     <script
       src="https://kit.fontawesome.com/638bd1bffb.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>
-      hljs.highlightAll();
-    </script>
 
     <script type="module" src="./js/index.js"></script>
   </body>
