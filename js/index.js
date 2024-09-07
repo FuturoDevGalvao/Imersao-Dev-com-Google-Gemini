@@ -14,84 +14,141 @@ const getSectionSearchElements = () => {
   };
 };
 
-const initCards = () => {
+const initCards = (data = bd) => {
   const { sectionResult } = getSectionResultElements();
-  bd.forEach((language) => {
-    sectionResult.innerHTML += `
-          <div class="card">
-            <div class="card-partition">
-              <i
-                class="devicon-${language.name.toLowerCase()}-plain colored"
-              ></i>
-            </div>
 
-            <div class="card-partition">
-              <h2>${language.name}</h2>
-              <p>${language.description}</p>
-              <div class="hello-world">
-                <span>Hello World:</span>
-                <pre><code class="preview">${language.helloWorld}</code></pre>
-              </div>
-              <div class="studing">
-                <span>Começe agora a aprender:</span>
-                <ul>
-                  <li>
-                    <a href="${language.linkEstudo}" target="_blank">
-                      ${language.linkEstudo}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="${language.linkDocumentacao}" target="_blank">
-                      ${language.linkDocumentacao}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+  sectionResult.innerHTML = "";
+
+  data.forEach((language) => {
+    // Renderizando os links de escolas/estudo
+    const schoolLinks = Object.entries(language.links.schools)
+      .map(([key, url]) =>
+        `<li>
+          <a href="${url}" target="_blank">${getActions()["capitalizeFirstLetter"](key)}</a>
+        </li>`
+      )
+      .join("");
+
+    // Renderizando os links de playlists (se houver)
+    const playlistLinks = language.links.playlists.length 
+          ? language.links.playlists
+          .map((playlistLink) => `<li><a href="${playlistLink}" target="_blank">YouTube</a></li>`)
+          .join("") 
+          : "<li>Nenhuma playlist disponível</li>";
+
+    sectionResult.innerHTML += `
+      <div class="card">
+        <div class="card-partition">
+          <i class="devicon-${language.name.toLowerCase()}-plain colored"></i>
+        </div>
+
+        <div class="card-partition">
+          <h2>${language.name}</h2>
+          <p>${language.description}</p>
+          <div class="hello-world">
+            <span>Hello World:</span>
+            <pre><code class="preview">${language.helloWorld}</code></pre>
           </div>
-        `;
+          <div class="studing">
+            <span>Comece agora a aprender:</span>
+            <ul>
+              <li><span>Escolas de tenologias:</span></li>
+              <ul>
+                ${schoolLinks}
+                <li>
+                  <a href="https://www.google.com/search?q=curso+${language.name}" target="_blank">
+                    Confira mais no google
+                  </a>
+                </li>
+              </ul>
+              <li><span>Playlists:</span></li>
+              <ul>
+                ${playlistLinks}
+                <li>
+                  <a href="https://www.google.com/search?q=playlist+curso+${language.name}" target="_blank">
+                    Confira mais no google
+                  </a>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
   });
 };
 
 const getActions = () => {
   const actions = {
-    validateInput: (input) => input.value !== "",
-    claerSearchInput: (input) => input.value = "",
-    search: (input) => {
-      console.log(input);
-      
-      const validated = actions.validateInput(input);
+    clearSearchInput: (input) => {
+      input.value = "";
+      initCards();
+    },
 
-      if (validated) {
-        actions.claerSearchInput(input);
-        const termOfSearch = input.value.trim();
-        alert(termOfSearch);
-      } else {
-        alert("ERRADO");
-      }
-    }
-  }
+    search: (input) => {
+      const termOfSearch = input.value.trim().toLowerCase();
+
+      initCards(actions.filter(termOfSearch));
+    },
+
+    focus: (input = null) => {
+      if (input) input.focus();
+    },
+
+    filter: (termOfSearch) =>
+      bd.filter((language) =>
+        language.name.toLowerCase().includes(termOfSearch)
+      ),
+
+    capitalizeFirstLetter: (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    },
+  };
 
   return actions;
-}
+};
 
 const addListenerOnElements = () => {
-  const {searchInput, searchIcon, clearIcon} = getSectionSearchElements();
+  const { searchInput, clearIcon } = getSectionSearchElements();
 
   console.log(searchInput);
-  
-  clearIcon.addEventListener("click", () => getActions()["claerSearchInput"](searchInput))
-  searchIcon.addEventListener("click", () => getActions()["search"](searchInput))
-}
+
+  clearIcon.addEventListener("click", () =>
+    getActions()["clearSearchInput"](searchInput)
+  );
+
+  searchInput.addEventListener("input", () =>
+    getActions()["search"](searchInput)
+  );
+
+  addKeyboardShortcut(searchInput);
+};
+
+const addKeyboardShortcut = (input) => {
+  let pressedKeys = new Set();
+
+  const shortcutCombinations = {
+    "control+x": getActions()["focus"],
+  };
+
+  document.addEventListener("keydown", (event) => {
+    const key = event.key.toLowerCase();
+    pressedKeys.add(key);
+
+    const shortcut = Array.from(pressedKeys).sort().join("+");
+    if (shortcutCombinations[shortcut]) {
+      shortcutCombinations[shortcut](input);
+      pressedKeys.clear(); // Limpa as teclas pressionadas após o atalho
+    }
+  });
+
+  document.addEventListener("keyup", (event) => {
+    const key = event.key.toLowerCase();
+    pressedKeys.delete(key); // Remove a tecla solta
+  });
+};
 
 window.onload = () => {
   initCards();
-
-  // Selecionar todos os blocos de código após a inserção
-  const codeBlocks = document.querySelectorAll("code.preview");
-  codeBlocks.forEach((codeBlock) => {
-    hljs.highlightElement(codeBlock);
-  });
-
-  addListenerOnElements()
+  addListenerOnElements();
 };

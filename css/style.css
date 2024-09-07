@@ -122,4 +122,8 @@ footer {
     /*   border: 1px solid green;
  */
   }
+
+  footer {
+    font-size: .8rem;
+  }
 }
