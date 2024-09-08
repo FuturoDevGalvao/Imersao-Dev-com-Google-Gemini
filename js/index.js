@@ -103,6 +103,25 @@ const getActions = () => {
     capitalizeFirstLetter: (string) => {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
+
+    writerEfect: (element) => {
+      var typewriter = new Typewriter(element, {
+        loop: true,
+        delay: 75,
+      });
+
+      typewriter
+        .pauseFor(1500)
+        .typeString('Codepedia')
+        .pauseFor(1000)
+        .deleteChars(10)
+        .typeString('<strong>"Imersao Dev"</strong>')
+        .pauseFor(1000)
+        .deleteChars(13)
+        .typeString('<span>"Google Gemini"</span>')
+        .pauseFor(1000)
+        .start();
+      },
   };
 
   return actions;
@@ -151,4 +170,5 @@ const addKeyboardShortcut = (input) => {
 window.onload = () => {
   initCards();
   addListenerOnElements();
+  getActions()["writerEfect"](logo);
 };
