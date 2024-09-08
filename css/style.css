@@ -42,18 +42,6 @@ header h1 {
   color: var(--font-pry);
 }
 
-#logo::after {
-  position: absolute;
-  content: "";
-  height: 2px;
-  width: 15px;
-  right: -10px;
-  bottom: -3px;
-  background-color: var(--cli-green);
-  animation: cursor 1s infinite linear;
-  transition: 0.3s all;
-}
-
 /* Animação para diminuir e expandir o cursor suavemente */
 @keyframes cursor {
   0% {
