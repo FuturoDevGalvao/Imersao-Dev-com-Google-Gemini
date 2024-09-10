@@ -4,6 +4,8 @@
 
 O Codepedia fornece uma visão superficial sobre determinadas linguagens de programação, mas também fontes de aprofundamento sobre essas tecnologias. Seu estilo foi inspirado em terminais linux.
 
+## Deploy: [https://codepedia](https://codepedia-alura.netlify.app/)
+
 ## Screenshots
 
 ![App Screenshot](img/Macbook-Air-localhost.png)
